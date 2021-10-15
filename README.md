@@ -1,12 +1,12 @@
 # WeakIdentityMap
 
-> Identity Map ensures that each object gets loaded only once by keeping every loaded object in a map. Looks up objects using the map when referring to them.
->
-> – [Martin Fowler](https://martinfowler.com/eaaCatalog/identityMap.html)
-
 The WeakIdentityMap object holds key-value pairs of weakly referenced objects and remembers the original insertion order of the keys. 
 
 A weak reference to an object is a reference that does not prevent the object from being reclaimed by the garbage collector. In contrast, a normal (or strong) reference keeps an object in memory.
+
+> Identity Map ensures that each object gets loaded only once by keeping every loaded object in a map. Looks up objects using the map when referring to them.
+>
+> – [Martin Fowler](https://martinfowler.com/eaaCatalog/identityMap.html)
 
 WeakIdentityMap is based on [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map), [WeakRef](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakRef) and [FinalizationRegistry](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/FinalizationRegistry) objects.
 
