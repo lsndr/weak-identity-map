@@ -1,6 +1,6 @@
 # WeakIdentityMap
 
-The WeakIdentityMap object holds key-value pairs of weakly referenced objects and remembers the original insertion order of the keys. 
+The `WeakIdentityMap` object holds key-value pairs of weakly referenced objects and remembers the original insertion order of the keys. 
 
 A weak reference to an object is a reference that does not prevent the object from being reclaimed by the garbage collector. In contrast, a normal (or strong) reference keeps an object in memory.
 
@@ -8,7 +8,7 @@ A weak reference to an object is a reference that does not prevent the object fr
 >
 > – [Martin Fowler](https://martinfowler.com/eaaCatalog/identityMap.html)
 
-WeakIdentityMap is based on [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map), [WeakRef](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakRef) and [FinalizationRegistry](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/FinalizationRegistry) objects.
+`WeakIdentityMap` is based on [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map), [WeakRef](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakRef) and [FinalizationRegistry](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/FinalizationRegistry) objects.
 
 * No dependencies
 * TypeScript
