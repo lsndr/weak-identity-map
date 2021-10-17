@@ -1,11 +1,15 @@
 export class WeakIdentityMap<K, V extends object> {
   #map: Map<K, WeakRef<V>>;
-  #registry: FinalizationRegistry<K>;
+  #registry: FinalizationRegistry<{ key: K; ref: WeakRef<V> }>;
 
   constructor() {
     this.#map = new Map();
-    this.#registry = new FinalizationRegistry((key) => {
-      this.#map.delete(key);
+    this.#registry = new FinalizationRegistry((heldValue) => {
+      const ref = this.#map.get(heldValue.key);
+
+      if (ref === heldValue.ref) {
+        this.#map.delete(heldValue.key);
+      }
     });
   }
 
@@ -24,9 +28,10 @@ export class WeakIdentityMap<K, V extends object> {
       this.#registry.unregister(oldValue);
     }
 
-    this.#map.set(key, new WeakRef<V>(value));
+    const ref = new WeakRef<V>(value);
 
-    this.#registry.register(value, key);
+    this.#map.set(key, ref);
+    this.#registry.register(value, { key, ref });
 
     return this;
   }
