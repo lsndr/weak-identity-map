@@ -1,13 +1,16 @@
 export class WeakIdentityMap<K, V extends object> {
+  #size: number;
   #map: Map<K, WeakRef<V>>;
   #registry: FinalizationRegistry<{ key: K; ref: WeakRef<V> }>;
 
   constructor() {
+    this.#size = 0;
     this.#map = new Map();
     this.#registry = new FinalizationRegistry((heldValue) => {
       const ref = this.#map.get(heldValue.key);
 
       if (ref === heldValue.ref) {
+        this.#size--;
         this.#map.delete(heldValue.key);
       }
     });
@@ -25,11 +28,13 @@ export class WeakIdentityMap<K, V extends object> {
     const oldValue = this.#map.get(key)?.deref();
 
     if (typeof oldValue !== 'undefined') {
+      this.#size--;
       this.#registry.unregister(oldValue);
     }
 
     const ref = new WeakRef<V>(value);
 
+    this.#size++;
     this.#map.set(key, ref);
     this.#registry.register(value, { key, ref });
 
@@ -40,6 +45,7 @@ export class WeakIdentityMap<K, V extends object> {
     const value = this.#map.get(key)?.deref();
 
     if (typeof value !== 'undefined') {
+      this.#size--;
       this.#registry.unregister(value);
     }
 
@@ -59,6 +65,7 @@ export class WeakIdentityMap<K, V extends object> {
       }
     }
 
+    this.#size = 0;
     this.#map.clear();
   }
 
@@ -131,5 +138,9 @@ export class WeakIdentityMap<K, V extends object> {
       },
       next,
     };
+  }
+
+  get size() {
+    return this.#size;
   }
 }
