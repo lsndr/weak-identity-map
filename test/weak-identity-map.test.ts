@@ -15,6 +15,7 @@ describe('WeakIdentityMap', () => {
     map.set(1, entity);
 
     expect(map.has(1)).toBeTruthy();
+    expect(map.size).toBe(1);
     expect(typeof map.get(1) === 'object' && map.get(1) !== null).toBeTruthy();
     expect(map.get(1)).toBe(entity);
   });
@@ -25,6 +26,7 @@ describe('WeakIdentityMap', () => {
     map.set(1, entity);
     map.set(2, entity);
 
+    expect(map.size).toBe(2);
     expect(map.has(1)).toBeTruthy();
     expect(map.has(2)).toBeTruthy();
     expect(Array.from(map.values()).length).toBe(2);
@@ -35,6 +37,9 @@ describe('WeakIdentityMap', () => {
       gc();
 
       try {
+        // TODO: figure out how to force calling FinalizationRegistry callback without mocking it
+        // expect(map.size).toBe(0);
+
         expect(map.has(1)).toBeFalsy();
         expect(map.has(2)).toBeFalsy();
 
@@ -60,6 +65,7 @@ describe('WeakIdentityMap', () => {
       gc();
 
       try {
+        expect(map.size).toBe(1);
         expect(map.has(1)).toBeTruthy();
         expect(map.get(1)).toBe(entity);
 
@@ -76,6 +82,7 @@ describe('WeakIdentityMap', () => {
 
     expect(map.has(1)).toBeTruthy();
     expect(map.delete(1)).toBeTruthy();
+    expect(map.size).toBe(0);
     expect(map.has(1)).toBeFalsy();
   });
 
@@ -90,6 +97,7 @@ describe('WeakIdentityMap', () => {
 
     map.clear();
 
+    expect(map.size).toBe(0);
     expect(map.has(1)).toBeFalsy();
     expect(map.has(2)).toBeFalsy();
   });
@@ -100,6 +108,7 @@ describe('WeakIdentityMap', () => {
     map.set(1, entity);
     map.set(2, entity);
 
+    expect(map.size).toBe(2);
     expect(Array.from(map.keys()).sort()).toEqual([1, 2].sort());
   });
 
@@ -112,6 +121,7 @@ describe('WeakIdentityMap', () => {
 
     const values = Array.from(map.values()).sort();
 
+    expect(map.size).toBe(2);
     expect(values.length).toBe(2);
     expect(values[0]).toBe(entity1);
     expect(values[1]).toBe(entity2);
@@ -126,6 +136,7 @@ describe('WeakIdentityMap', () => {
 
     const entries = Array.from(map.entries()).sort();
 
+    expect(map.size).toBe(2);
     expect(entries.length).toBe(2);
     expect(entries).toEqual(
       [

@@ -45,6 +45,12 @@ map.get('key');
 
 ## API
 
+#### size: number
+
+Returns the number of values in the `WeakFlyweightSet` object.
+
+> :warning: Number of values is not precise due to nature of `FinalizationRegistry` object.
+
 #### set(any, object): this
 
 The `set()` method adds or updates an element with a specified key and an object to a `WeakIdentityMap` object.
