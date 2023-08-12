@@ -47,7 +47,7 @@ map.get('key');
 
 #### size: number
 
-Returns the number of values in the `WeakFlyweightSet` object.
+Returns the number of values in the `WeakIdentityMap` object.
 
 > :warning: Number of values is not precise due to nature of `FinalizationRegistry` object.
 
