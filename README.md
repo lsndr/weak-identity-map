@@ -1,5 +1,10 @@
 # WeakIdentityMap
 
+[![npm version](https://badge.fury.io/js/weak-identity-map.svg)](https://badge.fury.io/js/weak-identity-map)
+[![npm downloads/month](https://img.shields.io/npm/dm/weak-identity-map.svg)](https://www.npmjs.com/package/weak-identity-map)
+[![npm downloads](https://img.shields.io/npm/dt/weak-identity-map.svg)](https://www.npmjs.com/package/weak-identity-map)
+[![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/lsndr/weak-identity-map/blob/master/LICENSE.md)
+
 The `WeakIdentityMap` object holds key-value pairs of weakly referenced objects and remembers the original insertion order of the keys. 
 
 A weak reference to an object is a reference that does not prevent the object from being reclaimed by the garbage collector. In contrast, a normal (or strong) reference keeps an object in memory.
@@ -48,8 +53,6 @@ map.get('key');
 #### size: number
 
 Returns the number of values in the `WeakIdentityMap` object.
-
-> :warning: Number of values is not precise due to nature of `FinalizationRegistry` object.
 
 #### set(any, object): this
 
