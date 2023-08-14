@@ -54,8 +54,6 @@ map.get('key');
 
 Returns the number of values in the `WeakIdentityMap` object.
 
-> :warning: Number of values is not precise due to nature of `FinalizationRegistry` object.
-
 #### set(any, object): this
 
 The `set()` method adds or updates an element with a specified key and an object to a `WeakIdentityMap` object.
