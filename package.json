@@ -12,7 +12,7 @@
     "lint": "eslint \"**/*.{ts,js}\" --max-warnings=0",
     "lint:fix": "npm run lint -- --fix",
     "lint:fix-staged": "lint-staged",
-    "prepublish": "npm run build"
+    "prepare": "npm run build"
   },
   "author": {
     "name": "lsndr",
