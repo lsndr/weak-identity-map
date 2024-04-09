@@ -35,23 +35,23 @@ describe('WeakIdentityMap', () => {
 
     setImmediate(() => {
       gc();
+      setImmediate(() => {
+        try {
+          expect(map.size).toBe(0);
 
-      try {
-        // TODO: figure out how to force calling FinalizationRegistry callback without mocking it
-        // expect(map.size).toBe(0);
+          expect(map.has(1)).toBeFalsy();
+          expect(map.has(2)).toBeFalsy();
 
-        expect(map.has(1)).toBeFalsy();
-        expect(map.has(2)).toBeFalsy();
+          expect(map.get(1)).toBeUndefined();
+          expect(map.get(2)).toBeUndefined();
 
-        expect(map.get(1)).toBeUndefined();
-        expect(map.get(2)).toBeUndefined();
+          expect(Array.from(map.values()).length).toBe(0);
 
-        expect(Array.from(map.values()).length).toBe(0);
-
-        done();
-      } catch (e) {
-        done(e);
-      }
+          done();
+        } catch (e) {
+          done(e);
+        }
+      });
     });
   });
 
@@ -135,6 +135,27 @@ describe('WeakIdentityMap', () => {
     map.set(2, entity2);
 
     const entries = Array.from(map.entries()).sort();
+
+    expect(map.size).toBe(2);
+    expect(entries.length).toBe(2);
+    expect(entries).toEqual(
+      [
+        [1, entity1],
+        [2, entity2],
+      ].sort(),
+    );
+    expect(entries[0][1]).toBe(entity1);
+    expect(entries[1][1]).toBe(entity2);
+  });
+
+  it('should iterate over object', () => {
+    const entity1 = {};
+    const entity2 = {};
+
+    map.set(1, entity1);
+    map.set(2, entity2);
+
+    const entries = Array.from(map).sort();
 
     expect(map.size).toBe(2);
     expect(entries.length).toBe(2);
