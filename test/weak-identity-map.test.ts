@@ -148,6 +148,27 @@ describe('WeakIdentityMap', () => {
     expect(entries[1][1]).toBe(entity2);
   });
 
+  it('should iterate over object', () => {
+    const entity1 = {};
+    const entity2 = {};
+
+    map.set(1, entity1);
+    map.set(2, entity2);
+
+    const entries = Array.from(map).sort();
+
+    expect(map.size).toBe(2);
+    expect(entries.length).toBe(2);
+    expect(entries).toEqual(
+      [
+        [1, entity1],
+        [2, entity2],
+      ].sort(),
+    );
+    expect(entries[0][1]).toBe(entity1);
+    expect(entries[1][1]).toBe(entity2);
+  });
+
   it('should go through each object', () => {
     const entities = [{}, {}];
 

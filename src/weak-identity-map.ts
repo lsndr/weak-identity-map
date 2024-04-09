@@ -6,6 +6,8 @@
  * @template V
  */
 export class WeakIdentityMap<K, V extends object> {
+  public [Symbol.iterator] = this.entries;
+
   #size: number;
   #map: Map<K, WeakRef<V>>;
   #registry: FinalizationRegistry<{ key: K; ref: WeakRef<V> }>;
