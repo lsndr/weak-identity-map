@@ -35,23 +35,23 @@ describe('WeakIdentityMap', () => {
 
     setImmediate(() => {
       gc();
+      setImmediate(() => {
+        try {
+          expect(map.size).toBe(0);
 
-      try {
-        // TODO: figure out how to force calling FinalizationRegistry callback without mocking it
-        // expect(map.size).toBe(0);
+          expect(map.has(1)).toBeFalsy();
+          expect(map.has(2)).toBeFalsy();
 
-        expect(map.has(1)).toBeFalsy();
-        expect(map.has(2)).toBeFalsy();
+          expect(map.get(1)).toBeUndefined();
+          expect(map.get(2)).toBeUndefined();
 
-        expect(map.get(1)).toBeUndefined();
-        expect(map.get(2)).toBeUndefined();
+          expect(Array.from(map.values()).length).toBe(0);
 
-        expect(Array.from(map.values()).length).toBe(0);
-
-        done();
-      } catch (e) {
-        done(e);
-      }
+          done();
+        } catch (e) {
+          done(e);
+        }
+      });
     });
   });
 
