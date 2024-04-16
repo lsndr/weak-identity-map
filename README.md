@@ -1,5 +1,6 @@
 # WeakIdentityMap
 
+[![codecov](https://codecov.io/gh/lsndr/weak-identity-map/graph/badge.svg?token=89357FF2PJ)](https://codecov.io/gh/lsndr/weak-identity-map)
 [![npm version](https://badge.fury.io/js/weak-identity-map.svg)](https://badge.fury.io/js/weak-identity-map)
 [![npm downloads/month](https://img.shields.io/npm/dm/weak-identity-map.svg)](https://www.npmjs.com/package/weak-identity-map)
 [![npm downloads](https://img.shields.io/npm/dt/weak-identity-map.svg)](https://www.npmjs.com/package/weak-identity-map)
