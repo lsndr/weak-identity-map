@@ -18,8 +18,10 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
       - name: Fix package.json (Node 14.6.0)
-        if: ${{ matrix.node-version == '14.6.0'}}
-        run: npx json -I -f package.json -e "this.scripts.prepare=this.scripts.build"
+        if: ${{ startsWith(matrix.node-version, '14.') }}
+        run: |
+          npx json -I -f package.json -e "this.scripts.prepare=this.scripts.build"
+          npm uninstall semantic-release
       - name: Install dependencies
         run: npm ci
       - name: Run linter
