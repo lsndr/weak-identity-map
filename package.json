@@ -16,6 +16,7 @@
   "scripts": {
     "build": "rimraf ./dist && tsc -p ./tsconfig.build.json",
     "test": "node --expose-gc node_modules/.bin/jest",
+    "test:build": "tsc -p ./tsconfig.test.json",
     "test:coverage": "node --expose-gc node_modules/.bin/jest --coverage --no-cache",
     "format": "prettier --check .",
     "format:fix": "prettier --write .",
