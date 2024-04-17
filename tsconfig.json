@@ -21,9 +21,6 @@
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true,
-  },
-  "include": [
-    "./src/**/*",
-  ]
+    "noUnusedParameters": true
+  }
 }

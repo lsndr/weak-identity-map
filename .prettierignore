@@ -1,0 +1,5 @@
+.prettierignore
+.husky
+.gitignore
+/coverage
+/dist
