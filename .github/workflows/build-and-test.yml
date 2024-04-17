@@ -1,9 +1,14 @@
 name: Build & Test
+
 on:
   push:
     branches: [master, next, "*.x", "*.*.x"]
   pull_request:
     branches: [master, next, "*.x", "*.*.x"]
+
+env:
+  HUSKY: 0
+
 jobs:
   build:
     runs-on: ubuntu-latest

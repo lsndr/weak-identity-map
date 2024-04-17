@@ -10,6 +10,9 @@ on:
 permissions:
   contents: read # for checkout
 
+env:
+  HUSKY: 0
+
 jobs:
   release:
     name: Release
