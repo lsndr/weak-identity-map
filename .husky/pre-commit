@@ -1,0 +1,4 @@
+npm run lint:fix-staged
+npm run format:fix
+npm run test
+npm run test:build

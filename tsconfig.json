@@ -4,11 +4,23 @@
     "module": "commonjs",
     "declaration": true,
     "strict": true,
-    "outDir": "./dist"
-  },
-  "exclude": [
-    "node_modules",
-    "test",
-    "dist"
-  ]
+    "outDir": "./dist",
+    "skipLibCheck": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "incremental": true,
+    "removeComments": false,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "noFallthroughCasesInSwitch": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true
+  }
 }

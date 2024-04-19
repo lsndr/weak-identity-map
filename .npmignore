@@ -1,2 +1,4 @@
 *
 !dist/**/*
+*.tsbuildinfo
+*dist/**/*.map

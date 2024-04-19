@@ -1,6 +1,6 @@
 module.exports = {
   rootDir: './',
-  testRegex: '.*\\.test\\.ts$',
+  testRegex: '.*\\.spec\\.ts$',
   coverageDirectory: '<rootDir>/coverage',
   collectCoverageFrom: ['**/*.ts'],
   transform: {

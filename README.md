@@ -1,11 +1,12 @@
 # WeakIdentityMap
 
+[![codecov](https://codecov.io/gh/lsndr/weak-identity-map/graph/badge.svg?token=89357FF2PJ)](https://codecov.io/gh/lsndr/weak-identity-map)
 [![npm version](https://badge.fury.io/js/weak-identity-map.svg)](https://badge.fury.io/js/weak-identity-map)
 [![npm downloads/month](https://img.shields.io/npm/dm/weak-identity-map.svg)](https://www.npmjs.com/package/weak-identity-map)
 [![npm downloads](https://img.shields.io/npm/dt/weak-identity-map.svg)](https://www.npmjs.com/package/weak-identity-map)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/lsndr/weak-identity-map/blob/master/LICENSE.md)
 
-The `WeakIdentityMap` object holds key-value pairs of weakly referenced objects and remembers the original insertion order of the keys. 
+The `WeakIdentityMap` object holds key-value pairs of weakly referenced objects and remembers the original insertion order of the keys.
 
 A weak reference to an object is a reference that does not prevent the object from being reclaimed by the garbage collector. In contrast, a normal (or strong) reference keeps an object in memory.
 
@@ -15,10 +16,10 @@ A weak reference to an object is a reference that does not prevent the object fr
 
 `WeakIdentityMap` is based on [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map), [WeakRef](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakRef) and [FinalizationRegistry](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/FinalizationRegistry) objects.
 
-* No dependencies
-* TypeScript
-* ES2021
-* Node.js >=14.6.0
+- No dependencies
+- TypeScript
+- ES2021
+- Node.js >=14.6.0
 
 ## Installation
 
