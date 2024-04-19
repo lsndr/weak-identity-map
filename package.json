@@ -1,6 +1,6 @@
 {
   "name": "weak-identity-map",
-  "version": "1.2.2-next.3",
+  "version": "1.2.2-next.4",
   "description": "The WeakIdentityMap object holds key-value pairs of weakly referenced objects and remembers the original insertion order of the keys",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
