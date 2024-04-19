@@ -51,8 +51,6 @@ map.get('key');
 
 ## API
 
-`WeakIdentityMap` is compliant with [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map).
-
 #### size: number
 
 Returns the number of values in the `WeakIdentityMap` object.
