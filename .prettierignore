@@ -1,5 +1,6 @@
 .prettierignore
 .husky
 .gitignore
+.npmignore
 /coverage
 /dist
